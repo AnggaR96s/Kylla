@@ -1,6 +1,6 @@
 """Make / Download Telegram Sticker Packs without installing Third Party applications
 Available Commands:
-.kangsticker [Optional Emoji]
+.kang [Optional Emoji]
 .packinfo
 .getsticker"""
 from telethon import events
@@ -44,21 +44,21 @@ async def _(event):
 
     me = borg.me
     userid = event.from_id
-    packname = f"{userid}'s @UniBorg Pack"
-    packshortname = f"Uni_Borg_{userid}"  # format: Uni_Borg_userid
+    packname = f"@UghteaSlayer's Sticker Pack"
+    packshortname = f"UghteaSlayee_{userid}"  # format: Uni_Borg_userid
 
     is_a_s = is_it_animated_sticker(reply_message)
-    file_ext_ns_ion = "@UniBorg_Sticker.png"
+    file_ext_ns_ion = "Sticker.png"
     file = await borg.download_file(reply_message.media)
     uploaded_sticker = None
     if is_a_s:
         file_ext_ns_ion = "AnimatedSticker.tgs"
         uploaded_sticker = await borg.upload_file(file, file_name=file_ext_ns_ion)
-        packname = f"{userid}'s @AnimatedStickersGroup"
+        packname = f"@UghteaSlayer's @AnimatedStickerPack"
         if userid == 719877937:
             packshortname = "SnapDragon_Animated"
         else:
-            packshortname = f"Uni_Borg_{userid}_as" # format: Uni_Borg_userid
+            packshortname = f"UghteaSlayer_{userid}_as" # format: Uni_Borg_userid
     elif not is_message_image(reply_message):
         await event.edit("Invalid message type")
         return
