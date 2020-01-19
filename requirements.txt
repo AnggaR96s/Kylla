@@ -1,0 +1,13 @@
+telethon>=1.10.10
+pip>=19.3.1
+hastebin.py
+async_generator
+pybase64
+zalgo_text
+pyfiglet
+lxml
+selenium
+aria2p 
+chatterbot
+chatterbot_corpus
+-r ./requirements-stdborg.txt
