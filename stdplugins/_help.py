@@ -1,11 +1,11 @@
-"""COMMAND : .info, .dc, .nigga"""
+"""COMMAND : .helpme, .dc, .help"""
 
 import sys
 from telethon import events, functions, __version__
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="info ?(.*)", allow_sudo=True))  # pylint:disable=E0602
+@borg.on(admin_cmd(pattern="helpme ?(.*)", allow_sudo=True))  # pylint:disable=E0602
 async def _(event):
     if event.fwd_from:
         return
@@ -14,11 +14,11 @@ async def _(event):
         s_help_string = borg._plugins[splugin_name].__doc__
     else:
         s_help_string = "****:"
-    help_string = """@UniBorg ( **Custom Built By** @NeoMatrix90 ) \n**Verified Account**: ✅\n**DESCRIPTION**: https://magicalpepewillguideyou.com\n
+    help_string = """@UniBorg ( **Custom Built By** @UghteaSlayer ) \n**Verified Account**: ✅\n**DESCRIPTION**: https://angga.studio\n
 Pithun {}
 Talethrun {}
  
-**Custom Built Fork**: https://github.com/prono69/PepeBot """.format(
+**Custom Built Fork**: @UniBorg """.format(
         sys.version,
         __version__
     )
@@ -57,18 +57,18 @@ async def _(event):
     await event.edit("""Telethon UserBot powered by @UniBorg""")
 
 
-@borg.on(admin_cmd(pattern="nigga (.*)"))
+@borg.on(admin_cmd(pattern="help (.*)"))
 async def _(event):
     if event.fwd_from:
         return
     plugin_name = event.pattern_match.group(1)
     if plugin_name in borg._plugins:
         help_string = borg._plugins[plugin_name].__doc__
-        unload_string = f"Use `.unloda {plugin_name}` to remove this plugin.\n         © @kirito6969"
+        unload_string = f"Use `.unloda {plugin_name}` to remove this plugin.\n"
         if help_string:
             plugin_syntax = f"Syntax for plugin **{plugin_name}**:\n\n{help_string}\n{unload_string}"
         else:
             plugin_syntax = f"No DOCSTRING has been setup for {plugin_name} plugin."
     else:
-        plugin_syntax = "Enter valid **Plugin** name.\nDo `.stdplugins` or `.info` to get list of valid plugin names."
+        plugin_syntax = "Enter valid **Plugin** name.\nDo `.stdplugins` or `.helpme` to get list of valid plugin names."
     await event.edit(plugin_syntax)
