@@ -1,11 +1,11 @@
 """Notification Manager for @UniBorg
-.nccreatedch
+.ncc
 .nolog
 .dellog
 .apm
 .bpm To block pm
 .blk To block faking retard nibba
-.listapprovedpms"""
+.lapm"""
 
 import asyncio
 import io
@@ -25,7 +25,7 @@ UNIBORG_USER_BOT_WARN_ZERO = "You are Spamming my Master's PM, So you are blocke
 UNIBORG_USER_BOT_NO_WARN = "[──▄█▀█▄─────────██ \n▄████████▄───▄▀█▄▄▄▄ \n██▀▼▼▼▼▼─▄▀──█▄▄ \n█████▄▲▲▲─▄▄▄▀───▀▄ \n██████▀▀▀▀─▀────────▀▀] \n\nBleep Blop! This is a Bot. Don't Freak xD.\n\nMy Master hasn't approved you to PM yet. Please wait for my Great Master to look in, She mostly approves PMs.\n\nUntil then, please don't spam my Queen's PM, you'll get blocked and reported!"
 
 
-@borg.on(admin_cmd(pattern="nccreatedch"))
+@borg.on(admin_cmd(pattern="ncc"))
 async def create_dump_channel(event):
     if Config.PM_LOGGR_BOT_API_ID is None:# || Config.PM_LOGGR_BOT_API_ID == -100:
         result = await borg(functions.channels.CreateChannelRequest(  # pylint:disable=E0602
@@ -132,7 +132,7 @@ async def approve_p_m(event):
                 await event.edit("`PM's Blocked Successfully`")
                 await asyncio.sleep(40)
                     
-@borg.on(admin_cmd(pattern="listapprovedpms"))
+@borg.on(admin_cmd(pattern="lapm"))
 async def approve_p_m(event):
     if event.fwd_from:
         return
