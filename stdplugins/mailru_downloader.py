@@ -28,7 +28,7 @@ async def _(event):
     c_time = time.time()
     downloaded_file_name = Config.TMP_DOWNLOAD_DIRECTORY
     await event.edit("Finish downloading to my local")
-    command_to_exec = f"./bin/cmrudl.py {url} -d ./ravana/"
+    command_to_exec = f"./bin/cmrudl.py {url} -d ./DOWNLOADS/"
     reply_to_id = event.message.id
     PROCESS_RUN_TIME = 100
     if event.reply_to_msg_id:
@@ -50,7 +50,7 @@ async def _(event):
             file_name = output[1]
             file_name = file_name.split()
             full_file_name = file_name[2]
-            out_file_name = "./ravana/" + full_file_name
+            out_file_name = "./DOWNLOADS/" + full_file_name
             logger.info(file_name)
             await event.edit("Uploading, please wait!!")
             await borg.send_file(
