@@ -116,6 +116,7 @@
     },
     "PM_LOGGR_BOT_API_ID": {
       "description": "send .g_id in any channel to forward all your NEW PMs to this group",
+      "value": "-100",
       "required": false
     },
     "NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD": {
@@ -169,11 +170,6 @@
     "FF_MPEG_DOWN_LOAD_MEDIA_PATH": {
       "description": "blah blah blah.",
       "value": "./uniborg.media.ffmpeg/",
-      "required": false
-    },
-    "PM_LOGGR_BOT_API_ID": {
-      "description": "Type .g_id in private channel and add that value here.",
-      "value": "-100",
       "required": false
     },
     "CHROME_BIN": {
