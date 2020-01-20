@@ -1,3 +1,4 @@
+""".squ"""
 # BY @STARKTM1
 from telethon import events
 import asyncio

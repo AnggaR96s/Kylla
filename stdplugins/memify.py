@@ -119,7 +119,7 @@ async def _(event):
                 event.chat_id,
                 requires_file_name,
                 supports_streaming=False,
-                caption="Userbot: Pepe iz Lobe (PepeBot)",
+                caption="Memifyed",
                 # Courtesy: @A_Dark_Princ3
             )
             await event.delete()

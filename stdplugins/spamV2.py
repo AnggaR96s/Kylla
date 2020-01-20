@@ -1,3 +1,4 @@
+""".tspam"""
 import asyncio
 import time
 from asyncio import wait

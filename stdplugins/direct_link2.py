@@ -3,7 +3,8 @@
 # Licensed under the Raphielscape Public License, Version 1.b (the "License");
 # you may not use this file except in compliance with the License.
 #
-""" Userbot module containing various sites direct links generators"""
+""" Userbot module containing various sites direct links generators
+.direct"""
 
 import asyncio
 import datetime

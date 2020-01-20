@@ -1,14 +1,4 @@
-"""Emoji
-
-Available Commands:
-
-.emoji shrug
-
-.emoji apple
-
-.emoji :/
-
-.emoji -_-"""
+""".nakal"""
 
 from telethon import events
 

@@ -1,4 +1,4 @@
-""" command: .unzip
+""" command: .untar
 coded by @By_Azade
 code rewritten my SnapDragon7410
 """

@@ -1,7 +1,10 @@
 # originally created by
 # https://github.com/Total-Noob-69/X-tra-Telegram/blob/master/userbot/plugins/webupload.py
 # modified by __me__ to suit **my** needs
-
+"""Avaible Command(s)
+.webupload ----(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)
+\n@UniBorg
+"""
 from uniborg.util import admin_cmd
 import asyncio
 import json

@@ -213,7 +213,7 @@ async def handler(event):
      await event.edit("✅ File Deleted 🗑")
 	 
     else:
-         await event.edit("⛔️File Not Found സാധനം കയ്യിലില്ല😬")
+         await event.edit("⛔️File Not Found 😬")
         
 @borg.on(events.NewMessage(pattern=r"\.delocal (.*)", outgoing=True))
 async def handler(event):
@@ -228,4 +228,4 @@ async def handler(event):
      await event.edit("✅ File Deleted 🗑")
 	 
     else:
-         await event.edit("⛔️File Not Found സാധനം കയ്യിലില്ല😬")
+         await event.edit("⛔️File Not Found 😬")

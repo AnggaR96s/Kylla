@@ -1,3 +1,5 @@
+""".enablespotify
+.disablespotify"""
 from asyncio import sleep
 from json import loads
 from json.decoder import JSONDecodeError
