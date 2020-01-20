@@ -1,7 +1,7 @@
 #kanged from AbhiNash Reddy's PPE (THX)
 
 """it will search youtube videos using Api
-\n`Type .yt (anynumber(maximum 50)) {ur query}`
+\n`Type .yts (anynumber(maximum 50)) {ur query}`
 \nAll thanks goes to **SNAPDRAGON** . Thnaks a lot Bruh..
 \nPorted by © [EYEPATCH](t.me/neomatrix90)
 \n`Don't Copy Without Credits.`"""
@@ -24,9 +24,9 @@ from requests import get
 from telethon import events
 from uniborg.util import admin_cmd
 
-@borg.on(admin_cmd(pattern="yt ?(\d+)? ?(.*)?"))
+@borg.on(admin_cmd(pattern="yts ?(\d+)? ?(.*)?"))
 async def yt_search(video_q):
-    """ For .yt command, do a YouTube search from Telegram. """
+    """ For .yts command, do a YouTube search from Telegram. """
     reply = await video_q.get_reply_message()
     if video_q.pattern_match.group(2):
         query = video_q.pattern_match.group(2)
