@@ -1,6 +1,6 @@
 {
-  "name": "PepeBot",
-  "description": "Only For Legends..... By : @kirito6969",
+  "name": "StdBorg",
+  "description": "Only For Legends..... By : @AnggaR96s",
   "logo": "https://telegra.ph/file/5b5388c1a96670bd96b5e.png",
   "keywords": [
     "sex",
@@ -10,9 +10,10 @@
     "vagina",
     "boobs"
   ],
-  "repository": "https://gitlab.com/SpEcHiDe/UniBorg",
+  "repository": "https://gitlab.com/AnggaR96s/Kylla",
   "website": "https://telegram.dog/UniBorg",
-  "success_url": "https://telegram.dog/NeoMatrix90",
+  "success_url": "https://telegram.dog/UghteaSlayer",
+  "stack": "container",
   "env": {
     "ENV": {
       "description": "Setting this to ANYTHING will enable environment variables.",
@@ -50,15 +51,7 @@
     },
     "TMP_DOWNLOAD_DIRECTORY": {
       "description": "This is required for the plugins involving the file system.",
-      "value": "./ravana/",
-      "required": false
-    },
-    "IBM_WATSON_CRED_URL": {
-      "description": "This is required for the speech to text module. Get your USERNAME from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html",
-      "required": false
-    },
-    "IBM_WATSON_CRED_PASSWORD": {
-      "description": "This is required for the speech to text module. Get your PASSWORD from https://console.bluemix.net/docs/services/speech-to-text/getting-started.html",
+      "value": "./DOWNLOADS/",
       "required": false
     },
     "LYDIA_API": {
@@ -134,17 +127,9 @@
     },
     "TZ": {
       "description": "set your default time zone for time related features to work correctly. Value should match the string here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
-      "value": "Asia/Kolkata",
+      "value": "Asia/Jakarta",
       "required": false
     },
-    "VERY_STREAM_LOGIN": {
-      "description": "Get your API key from https://verystream.com",
-      "required": false
-    },
-    "VERY_STREAM_KEY": {
-      "description": "Get your API key from https://verystream.com",
-      "required": false
-   },
     "G_DRIVE_CLIENT_ID": {
       "description": "Get your credentials from https://da.gd/so63O",
       "required": false
@@ -174,12 +159,16 @@
     },
     "CHROME_BIN": {
       "description": "For Carbon.py",
-      "value": "/app/.apt/usr/bin/google-chrome",
+      "value": "/usr/bin/chromium-browser",
       "required": false
     },
     "CHROME_DRIVER": {
       "description": "For Carbon.py",
-      "value": "/app/.chromedriver/bin/chromedriver",
+      "value": "/usr/bin/chromedriver",
+      "required": false
+    },
+    "NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD": {
+      "value": "8",
       "required": false
     },
     "GITHUB_ACCESS_TOKEN": {
@@ -188,14 +177,15 @@
     },
     "GIT_REPO_NAME": {
       "description": "This is required for commit functionality to work.",
+      "value": "https://github.com/AnggaR96s/Kylla.git",
       "required": false
     },
     "OPEN_LOAD_KEY": {
-      "description": "I dunno but my repo needs it, u can type 100.",
+      "description": "Leave bcz oload dead",
       "required": false
     },
     "OPEN_LOAD_LOGIN": {
-      "description": "Same Description As Above.",
+      "description": "Leave bcz oload dead",
       "required": false
     },
     "MIRROR_ACE_API_KEY": {
@@ -208,7 +198,7 @@
     },
     "TEMP_DIR": {
       "description": ":p",
-      "value": "Env",
+      "value": "./DOWNLOADS/",
       "required": false
     },
     "UB_BLACK_LIST_CHAT": {
@@ -216,33 +206,21 @@
       "value": "-100",
       "required": false
     },
-    "RAVANA_LEELA": {
-      "description": "TO ADD TIME ON YOUR PROFILE PIC, ADD LINK OF IMAGE ENDING WITH .JPG",
-      "value": "https://telegra.ph/file/674ef67d845b4304823d3.jpg",
-      "required": false
+    "YOUTUBE_API_KEY": {
+      "description": "Your YouTube API Key code as a string",
+      "required": true
     },
     "TELE_GRAM_2FA_CODE": {
       "description": "Your Telegram 2FA code as a string",
       "required": false
     }
   },
-  "addons": [{
-    "plan": "heroku-postgresql",
-    "options": {
-      "version": "9.5"
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
     }
-  }],
-  "buildpacks": [{
-    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
-  }, {
-    "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
-  }, {
-    "url": "https://github.com/amivin/aria2-heroku"
-  }, {
-    "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
-  }, {
-    "url": "https://github.com/heroku/heroku-buildpack-chromedriver"
-  }, {
-    "url": "heroku/python"
-  }]
+  ]
 }
