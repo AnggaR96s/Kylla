@@ -1,4 +1,14 @@
-"""COMMAND : .helpme, .dc, .help"""
+"""**Know Your UniBorg**
+◇ list of all loaded plugins
+◆ `.helpme`\n
+◇ to know Data Center
+◆ `.dc`\n
+◇ powered by
+◆ `.config`\n
+◇ to know syntax
+◆ `.syntax` <plugin name>
+"""
+
 
 import sys
 from telethon import events, functions, __version__
@@ -13,12 +23,11 @@ async def _(event):
     if splugin_name in borg._plugins:
         s_help_string = borg._plugins[splugin_name].__doc__
     else:
-        s_help_string = "****:"
-    help_string = """@UniBorg ( **Custom Built By** @UghteaSlayer ) \n**Verified Account**: ✅\n**DESCRIPTION**: https://angga.studio\n
-Pithun {}
-Talethrun {}
- 
-**Custom Built Fork**: @UniBorg """.format(
+        s_help_string = ""
+    help_string = """@UniBorg
+Python {}
+Telethon {}
+UserBot Custom Build by @UghteaSlayer""".format(
         sys.version,
         __version__
     )
@@ -57,18 +66,18 @@ async def _(event):
     await event.edit("""Telethon UserBot powered by @UniBorg""")
 
 
-@borg.on(admin_cmd(pattern="help (.*)"))
+@borg.on(admin_cmd(pattern="syntax (.*)"))
 async def _(event):
     if event.fwd_from:
         return
     plugin_name = event.pattern_match.group(1)
     if plugin_name in borg._plugins:
         help_string = borg._plugins[plugin_name].__doc__
-        unload_string = f"Use `.unloda {plugin_name}` to remove this plugin.\n"
+        unload_string = f"Use `.unload {plugin_name}` to remove this plugin."
         if help_string:
             plugin_syntax = f"Syntax for plugin **{plugin_name}**:\n\n{help_string}\n{unload_string}"
         else:
             plugin_syntax = f"No DOCSTRING has been setup for {plugin_name} plugin."
     else:
-        plugin_syntax = "Enter valid **Plugin** name.\nDo `.stdplugins` or `.helpme` to get list of valid plugin names."
+        plugin_syntax = "Enter valid **Plugin** name.\nDo `.exec ls stdplugins` or `.helpme` to get list of valid plugin names."
     await event.edit(plugin_syntax)
