@@ -1,5 +1,5 @@
 # (c) @UniBorg
-
+""".tlol"""
 from telethon import events
 import asyncio
 from collections import deque

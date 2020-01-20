@@ -1,6 +1,6 @@
 # (c) @UniBorg
 # Original written by @UniBorg edit by @I_m_Rock
-
+""".rain"""
 from telethon import events
 import asyncio
 from collections import deque

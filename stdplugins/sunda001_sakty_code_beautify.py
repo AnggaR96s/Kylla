@@ -1,6 +1,6 @@
 # For @UniBorg
 # (c) <GNU/std::sakty_]> a.k.a. @sunda001
-
+""".code"""
 
 from telethon import events
 import asyncio

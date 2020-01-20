@@ -1,3 +1,4 @@
+""".sleep"""
 from telethon import events
 import asyncio
 import os

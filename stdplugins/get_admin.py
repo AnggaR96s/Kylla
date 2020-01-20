@@ -1,11 +1,11 @@
 """Get Administrators of any Chat*
-Syntax: .g_admin"""
+Syntax: .gadmin"""
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins, ChannelParticipantAdmin, ChannelParticipantCreator
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("g_ad?(m)in ?(.*)"))
+@borg.on(admin_cmd("gad?(m)in ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

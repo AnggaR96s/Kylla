@@ -1,4 +1,4 @@
-"""Reply to a user to .premote / .demote / .prankpremote them in the current chat"""
+"""Reply to a user to .promote / .demote / .prank them in the current chat"""
 from telethon import events
 import asyncio
 from datetime import datetime
@@ -7,7 +7,7 @@ from telethon.tl.types import ChatAdminRights
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="premote ?(.*)"))
+@borg.on(admin_cmd(pattern="promote ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -64,7 +64,7 @@ async def _(event):
         await event.edit("Successfully Demoted")
 
         
-@borg.on(admin_cmd(pattern="prankpremote ?(.*)"))
+@borg.on(admin_cmd(pattern="prank ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -85,4 +85,4 @@ async def _(event):
     except (Exception) as exc:
         await event.edit(str(exc))
     else:
-        await event.edit("admins has Successfully premoted Madanyu{}")
+        await event.edit("admins has Successfully premoted {}")

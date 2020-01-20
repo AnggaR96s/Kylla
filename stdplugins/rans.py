@@ -1,6 +1,6 @@
 ﻿# (c) @UniBorg
 # Original written by @UniBorg edit by @INF1N17Y
-
+""".kos"""
 from telethon import events
 import asyncio
 from collections import deque

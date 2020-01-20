@@ -1,11 +1,11 @@
 """ Get the Bots in any chat*
-Syntax: .g_bot"""
+Syntax: .gbot"""
 from telethon import events
 from telethon.tl.types import ChannelParticipantAdmin, ChannelParticipantsBots
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("g_bot ?(.*)"))
+@borg.on(admin_cmd("gbot ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return

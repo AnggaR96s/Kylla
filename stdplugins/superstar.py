@@ -1,4 +1,4 @@
-"""command: .hack"""
+"""command: .star"""
 
 from telethon import events
 

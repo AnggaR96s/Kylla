@@ -1,4 +1,5 @@
 #Originally created By KingMars ✅ Rain Sequence 2 {Updated}
+""".km_rain2"""
 from telethon import events
 import asyncio
 from collections import deque

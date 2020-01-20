@@ -1,3 +1,4 @@
+""".print (yee|happy|happy2|happy3|crying|dicc|fek|ded|sad|lenny|packs)"""
 import asyncio
 import datetime
 from telethon import events

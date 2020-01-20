@@ -1,14 +1,4 @@
-"""Emoji
-
-Available Commands:
-
-.emoji shrug
-
-.emoji apple
-
-.emoji :/
-
-.emoji -_-"""
+""".oof"""
 
 from telethon import events
 
@@ -39,19 +29,19 @@ async def _(event):
 
         animation_chars = [
 
-            "o",
-            "oo",    
-            "ooo",
-            "ooooo",
-            "oooooo",
-            "ooooooo",
-            "oooooooo",
-            "ooooooooo",
-            "oooooooooo",    
-            "ooooooooooo",
-            "oooooooooooo",
-            "ooooooooooooo",
-            "oooooooooooooof"
+            "O",
+            "Oo",    
+            "Ooo",
+            "Ooooo",
+            "Oooooo",
+            "Ooooooo",
+            "Oooooooo",
+            "Ooooooooo",
+            "Oooooooooo",    
+            "Ooooooooooo",
+            "Oooooooooooo",
+            "Ooooooooooooo",
+            "Oooooooooooooof"
         ]
 
         for i in animation_ttl:

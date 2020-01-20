@@ -27,7 +27,8 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
-""" Userbot module for frying stuff. ported by @NeoMatrix90 """
+""" Userbot module for frying stuff. ported by @NeoMatrix90 
+.deep"""
 
 import io
 from random import randint, uniform
@@ -66,7 +67,7 @@ async def deepfryer(event):
     image = Image.open(image)
 
     # fry the image
-    await event.edit("`Petrol dal ke Phook Rela Hoon....\nWait...`")
+    await event.edit("`Deepfrying....\nWait...`")
     for _ in range(frycount):
         image = await deepfry(image)
 

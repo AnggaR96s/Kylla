@@ -1,4 +1,8 @@
-
+"""
+.sg
+.fakemail
+.mailid
+"""
 import datetime
 import asyncio
 from telethon import events

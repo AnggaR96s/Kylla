@@ -1,5 +1,5 @@
 """Check your internet speed powered by speedtest.net
-Syntax: .speedtest
+Syntax: .speed
 Available Options: image, file, text"""
 from telethon import events
 from datetime import datetime
@@ -8,13 +8,13 @@ import speedtest
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd(pattern="speedtest ?(.*)"))
+@borg.on(admin_cmd(pattern="speed ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
     input_str = event.pattern_match.group(1)
-    as_text = False
-    as_document = True
+    as_text = True
+    as_document = False
     if input_str == "image":
         as_document = False
     elif input_str == "file":

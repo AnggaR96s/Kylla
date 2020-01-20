@@ -1,3 +1,4 @@
+""".ddg"""
 from telethon import events
 import os
 import requests

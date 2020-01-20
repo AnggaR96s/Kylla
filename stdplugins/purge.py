@@ -1,4 +1,5 @@
 """Purge your messages without the admins seeing it in Recent Actions"""
+""".purge"""
 from telethon import events
 import asyncio
 from uniborg.util import admin_cmd
