@@ -157,7 +157,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
             helpable_plugins.append(p)
     helpable_plugins = sorted(helpable_plugins)
     modules = [custom.Button.inline(
-        "{} {}".format("✅", x),
+        "{} {}".format("📝", x),
         data="ub_plugin_{}".format(x))
         for x in helpable_plugins]
     pairs = list(zip(modules[::number_of_cols], modules[1::number_of_cols]))
@@ -168,7 +168,7 @@ def paginate_help(page_number, loaded_plugins, prefix):
     if len(pairs) > number_of_rows:
         pairs = pairs[modulo_page * number_of_rows:number_of_rows * (modulo_page + 1)] + \
             [
-            (custom.Button.inline("Previous", data="{}_prev({})".format(prefix, modulo_page)),
-             custom.Button.inline("Next", data="{}_next({})".format(prefix, modulo_page)))
+            (custom.Button.inline("⏮", data="{}_prev({})".format(prefix, modulo_page)),
+             custom.Button.inline("⏭", data="{}_next({})".format(prefix, modulo_page)))
         ]
     return pairs
