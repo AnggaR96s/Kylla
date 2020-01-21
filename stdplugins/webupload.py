@@ -2,7 +2,7 @@
 # https://github.com/Total-Noob-69/X-tra-Telegram/blob/master/userbot/plugins/webupload.py
 # modified by __me__ to suit **my** needs
 """Avaible Command(s)
-.webupload ----(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)
+.web ----(an|tf|fb|af|mu|bf)
 \n@UniBorg
 """
 from uniborg.util import admin_cmd
@@ -11,7 +11,7 @@ import json
 import os
 
 
-@borg.on(admin_cmd(pattern="webupload ?(.+?|) --(anonfiles|transfer|filebin|anonymousfiles|megaupload|bayfiles)"))
+@borg.on(admin_cmd(pattern="web ?(.+?|) --(an|tf|fb|af|mu|bf)"))
 async def _(event):
 	await event.edit("processing ...")
 	PROCESS_RUN_TIME = 100
@@ -27,12 +27,12 @@ async def _(event):
 		)
 	# a dictionary containing the shell commands
 	CMD_WEB = {
-		"anonfiles": "curl -F \"file=@{full_file_path}\" https://anonfiles.com/api/upload",
-		"transfer": "curl --upload-file \"{full_file_path}\" https://transfer.sh/{bare_local_name}",
-		"filebin": "curl -X POST --data-binary \"@{full_file_path}\" -H \"filename: {bare_local_name}\" \"https://filebin.net\"",
-		"anonymousfiles": "curl -F file=\"@{full_file_path}\" https://api.anonymousfiles.io/",
-		"megaupload": "curl -F \"file=@{full_file_path}\" https://megaupload.is/api/upload",
-		"bayfiles": "curl -F \"file=@{full_file_path}\" https://bayfiles.com/api/upload"
+		"an": "curl -F \"file=@{full_file_path}\" https://anonfiles.com/api/upload",
+		"tf": "curl --upload-file \"{full_file_path}\" https://transfer.sh/{bare_local_name}",
+		"fb": "curl -X POST --data-binary \"@{full_file_path}\" -H \"filename: {bare_local_name}\" \"https://filebin.net\"",
+		"af": "curl -F file=\"@{full_file_path}\" https://api.anonymousfiles.io/",
+		"mu": "curl -F \"file=@{full_file_path}\" https://megaupload.is/api/upload",
+		"bf": "curl -F \"file=@{full_file_path}\" https://bayfiles.com/api/upload"
 	}
 	filename = os.path.basename(file_name)
 	try:
