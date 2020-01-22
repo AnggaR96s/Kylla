@@ -1,5 +1,5 @@
 """Execute GNU/Linux commands inside Telegram
-Syntax: .lsroot , .ls"""
+Syntax: .lsroot , .lsdl"""
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -16,7 +16,7 @@ if not os.path.isdir("./SAVED"):
 if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
      os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
 
-@borg.on(events.NewMessage(pattern=r"\.ls", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.lsdl", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -26,7 +26,7 @@ async def _(event):
 #    tempdir = "localdir"
     cmd = "ls ./DOWNLOADS/"
 #    if dirname == tempdir:
-	
+
     eply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
@@ -64,7 +64,7 @@ async def _(event):
     DELAY_BETWEEN_EDITS = 0.3
     PROCESS_RUN_TIME = 100
     cmd = "ls"
-	
+
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
@@ -90,7 +90,7 @@ async def _(event):
         await event.edit(f"**{stderr.decode()}**")
         return
     await event.edit(f"{OUTPUT}`{stdout.decode()}`")
-	
+
 @borg.on(events.NewMessage(pattern=r"\.lssaved", outgoing=True))
 async def _(event):
     if event.fwd_from:
@@ -98,7 +98,7 @@ async def _(event):
     DELAY_BETWEEN_EDITS = 0.3
     PROCESS_RUN_TIME = 100
     cmd = "ls ./SAVED/"
-	
+
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
         reply_to_id = event.reply_to_msg_id
@@ -161,7 +161,7 @@ async def _(event):
         await event.edit(f"**{stderr.decode()}**")
         return
     await event.edit(f"File renamed `{src}` to `{dst}`")
-	
+
 @borg.on(events.NewMessage(pattern=r"\.rnlocal ?(.*)", outgoing=True))
 async def _(event):
     if event.fwd_from:
@@ -199,7 +199,7 @@ async def _(event):
         await event.edit(f"**{stderr.decode()}**")
         return
     await event.edit(f"File renamed `{src}` to `{dst}`")
-        
+
 @borg.on(events.NewMessage(pattern=r"\.delsave (.*)", outgoing=True))
 async def handler(event):
     if event.fwd_from:
@@ -207,14 +207,14 @@ async def handler(event):
     input_str = event.pattern_match.group(1)
     pathtofile = f"./SAVED/{input_str}"
 
-	
+
     if os.path.isfile(pathtofile):
      os.remove(pathtofile)
      await event.edit("✅ File Deleted 🗑")
-	 
+
     else:
          await event.edit("⛔️File Not Found 😬")
-        
+
 @borg.on(events.NewMessage(pattern=r"\.rm (.*)", outgoing=True))
 async def handler(event):
     if event.fwd_from:
@@ -222,10 +222,10 @@ async def handler(event):
     input_str = event.pattern_match.group(1)
     pathtofile = f"./DOWNLOADS/{input_str}"
 
-	
+
     if os.path.isfile(pathtofile):
      os.remove(pathtofile)
      await event.edit("✅ File Deleted 🗑")
-	 
+
     else:
          await event.edit("⛔️File Not Found 😬")
