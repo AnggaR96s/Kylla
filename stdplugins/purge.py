@@ -1,9 +1,16 @@
-"""Purge your messages without the admins seeing it in Recent Actions"""
-""".purge"""
-from telethon import events
-import asyncio
-from uniborg.util import admin_cmd
+"""Purge your messages
+.purge
+.purgme"""
 
+import asyncio
+from asyncio import sleep
+from uniborg.util import admin_cmd
+import logging
+logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+                    level=logging.WARNING)
+ 
+level=logging.INFO
+print(level)
 
 @borg.on(admin_cmd("purge ?(.*)"))
 async def _(event):
@@ -25,11 +32,48 @@ async def _(event):
             i = i + 1
             msgs.append(message)
             if len(msgs) == 100:
-                await borg.delete_messages(event.chat_id, msgs)
+                await borg.delete_messages(event.chat_id, msgs, revoke=True)
                 msgs = []
         if len(msgs) <= 100:
-            await borg.delete_messages(event.chat_id, msgs)
+            await borg.delete_messages(event.chat_id, msgs, revoke=True)
             msgs = []
             await event.delete()
         else:
             await event.edit("**PURGE** Failed!")
+
+    
+@borg.on(admin_cmd("purgme ?(.*)"))
+async def purgeme(delme):
+    """ For .purgeme, delete x count of your latest message."""
+    message = delme.text
+    count = int(message[8:])
+    i = 1
+
+    async for message in delme.client.iter_messages(delme.chat_id,
+                                                    from_user='me'):
+        if i > count + 1:
+            break
+        i = i + 1
+        await message.delete()
+
+    smsg = await delme.client.send_message(
+        delme.chat_id,
+        "`Purge complete!` Purged " + str(count) + " messages.",
+    )
+    await asyncio.sleep(5)
+    await smsg.delete()
+    
+@borg.on(admin_cmd(pattern="sd ?(.*)"))
+async def selfdestruct(destroy):
+    """ For .sd command, make seflf-destructable messages. """
+    message = destroy.text
+    counter = int(message[4:6])
+    text = str(destroy.text[6:])
+    await destroy.delete()
+    smsg = await destroy.client.send_message(destroy.chat_id, text)
+    await sleep(counter)
+    await smsg.delete()
+    if Config.BOTLOG:
+        await destroy.client.send_message(Config.PRIVATE_GROUP_BOT_API_ID,
+                                          "`Sd query done successfully`")
+     
