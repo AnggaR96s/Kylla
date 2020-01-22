@@ -3,8 +3,8 @@ Syntax:
 .gdrive : Upload file
 .gdir : Upload folder
 .drive (del | get)
-.sdrive : Search file
-.ghdrive: upload with hidden link """
+.drives : Search file
+.driveh: upload with hidden link """
 
 # The entire code given below is verbatim copied from
 # https://github.com/cyberboysumanjay/Gdrivedownloader/blob/master/gdrive_upload.py
@@ -204,7 +204,7 @@ async def _(event):
     await mone.edit(response_from_svc)
 
 
-@borg.on(admin_cmd(pattern="sdrive ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="drives ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -438,7 +438,7 @@ async def gdrive_search(http, search_query):
     return msg
 
 
-@borg.on(admin_cmd(pattern="ghdrive ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="driveh ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -501,7 +501,7 @@ async def _(event):
         # Sometimes API fails to retrieve starting URI, we wrap it.
         try:
             g_drive_link = await upload_file(http, required_file_name, file_name, mime_type, mone, G_DRIVE_F_PARENT_ID)
-            await mone.edit(f"**🔥Encrypted G-Drive🔥** \n File Name: {file_name} \nHere is your Google Drive link: **Hidden Link**")
+            await mone.edit(f"**🔥Encrypted G-Drive🔥** \nFile Name: `{file_name}` \nHere is your Google Drive link: **Hidden Link**")
         except Exception as e:
             await mone.edit(f"Exception occurred while uploading to gDrive {e}")
     else:
