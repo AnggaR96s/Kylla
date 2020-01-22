@@ -62,18 +62,3 @@ async def purgeme(delme):
     )
     await asyncio.sleep(5)
     await smsg.delete()
-    
-@borg.on(admin_cmd(pattern="sd ?(.*)"))
-async def selfdestruct(destroy):
-    """ For .sd command, make seflf-destructable messages. """
-    message = destroy.text
-    counter = int(message[4:6])
-    text = str(destroy.text[6:])
-    await destroy.delete()
-    smsg = await destroy.client.send_message(destroy.chat_id, text)
-    await sleep(counter)
-    await smsg.delete()
-    if Config.BOTLOG:
-        await destroy.client.send_message(Config.PRIVATE_GROUP_BOT_API_ID,
-                                          "`Sd query done successfully`")
-     
