@@ -1,5 +1,5 @@
 """Execute GNU/Linux commands inside Telegram
-Syntax: .lsroot , .lslocal"""
+Syntax: .lsroot , .ls"""
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -16,7 +16,7 @@ if not os.path.isdir("./SAVED"):
 if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
      os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
 
-@borg.on(events.NewMessage(pattern=r"\.lslocal", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.ls", outgoing=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -24,7 +24,7 @@ async def _(event):
     PROCESS_RUN_TIME = 100
 #    dirname = event.pattern_match.group(1)
 #    tempdir = "localdir"
-    cmd = "ls -lh ./DOWNLOADS/"
+    cmd = "ls ./DOWNLOADS/"
 #    if dirname == tempdir:
 	
     eply_to_id = event.message.id
@@ -34,7 +34,7 @@ async def _(event):
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
-    OUTPUT = f"**Files in [Download's](tg://need_update_for_some_feature/) DOWNLOADS Folder:**\n"
+    OUTPUT = f"**Files in DOWNLOADS Folder:**\n"
     stdout, stderr = await process.communicate()
     if len(stdout) > Config.MAX_MESSAGE_SIZE_LIMIT:
         with io.BytesIO(str.encode(stdout)) as out_file:
@@ -63,7 +63,7 @@ async def _(event):
         return
     DELAY_BETWEEN_EDITS = 0.3
     PROCESS_RUN_TIME = 100
-    cmd = "ls -lh"
+    cmd = "ls"
 	
     reply_to_id = event.message.id
     if event.reply_to_msg_id:
@@ -215,7 +215,7 @@ async def handler(event):
     else:
          await event.edit("⛔️File Not Found 😬")
         
-@borg.on(events.NewMessage(pattern=r"\.delocal (.*)", outgoing=True))
+@borg.on(events.NewMessage(pattern=r"\.rm (.*)", outgoing=True))
 async def handler(event):
     if event.fwd_from:
         return

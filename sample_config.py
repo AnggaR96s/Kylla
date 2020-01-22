@@ -96,8 +96,8 @@ class Config(object):
     # malicious users could do ".exec rm -rf /*"
     SUDO_USERS = set(int(x) for x in os.environ.get("SUDO_USERS", "").split())
     # VeryStream only supports video formats
-    VERY_STREAM_LOGIN = os.environ.get("VERY_STREAM_LOGIN", None)
-    VERY_STREAM_KEY = os.environ.get("VERY_STREAM_KEY", None)
+    # VERY_STREAM_LOGIN = os.environ.get("VERY_STREAM_LOGIN", None)
+    # VERY_STREAM_KEY = os.environ.get("VERY_STREAM_KEY", None)
     TEMP_DIR = os.environ.get("TEMP_DIR", None)
     CHANNEL_ID = os.environ.get("CHANNEL_ID", None)
     # Google Drive ()
@@ -114,8 +114,8 @@ class Config(object):
     TELE_GRAM_2FA_CODE = os.environ.get("TELE_GRAM_2FA_CODE", None)
     #
     GROUP_REG_SED_EX_BOT_S = os.environ.get("GROUP_REG_SED_EX_BOT_S", r"(regex|moku|BananaButler_|rgx|l4mR)bot")
-    # rapidleech plugins	
-    OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", "0")	
+    # rapidleech plugins
+    OPEN_LOAD_LOGIN = os.environ.get("OPEN_LOAD_LOGIN", "0")
     OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", "0")
     # Google Chrome Selenium Stuff
     # taken from https://github.com/jaskaranSM/UniBorg/blob/9072e3580cc6c98d46f30e41edbe73ffc9d850d3/sample_config.py#L104-L106
@@ -140,7 +140,6 @@ class Config(object):
     MIRROR_ACE_API_KEY = os.environ.get("MIRROR_ACE_API_KEY", None)
     MIRROR_ACE_API_TOKEN = os.environ.get("MIRROR_ACE_API_TOKEN", None)
     #
-    RAVANA_LEELA = os.environ.get("RAVANA_LEELA", None)
     # spotify stuff
     DEFAULT_BIO = os.environ.get("DEFAULT_BIO",None)
     SPOTIFY_BIO_PREFIX = os.environ.get("SPOTIFY_BIO_PREFIX",None)
@@ -156,7 +155,7 @@ class Config(object):
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
     #For Lol
     API_TOKEN = os.environ.get("API_TOKEN", None)
- 
+
 
 class Production(Config):
     LOGGER = False

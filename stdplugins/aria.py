@@ -1,42 +1,57 @@
-"""
-A Torrent Client Plugin Based On Aria2 for Userbot
-Syntax: Start Aria2: .ariastart
-    Magnet link: .addmagnet magnetLink
-    Torrent file from local: .addtorrent file_path
-    Show Downloads: .showariastatus
-    Remove All Downloads: .ariaRM
-    Resume All Downloads: .ariaRES
-    Pause All Downloads:  .ariaP
-"""
-# By:- @Zero_cool7870
+"""A Torrent Client Plugin Based On Aria2 for Userbot
 
+cmds: Magnet link : .ariastart to starting
+          .addmagnet magnetLink
+	  Torrent file from local: .addtorrent file_path
+          Add from url: .addurl
+	  Show Downloads: .show
+	  Remove All Downloads: .ariarm
+	  Resume All Downloads: .aria1
+	  Pause All Downloads:  .aria0
 
+By:- @Zero_cool7870"""
 import aria2p
 import asyncio
 import io
 import os
 from uniborg.util import admin_cmd
 
-import logging
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.WARN)
-
 
 EDIT_SLEEP_TIME_OUT = 15
+# The port that RPC will listen on
 ARIA2_STARTED_PORT = 6800
-aria2_daemon_start_cmd = f"aria2c --enable-rpc --rpc-listen-all=false --rpc-listen-port {ARIA2_STARTED_PORT} --max-connection-per-server=10 --rpc-max-request-size=1024M --seed-time=0.01 --seed-ratio=100.0 --min-split-size=10M --follow-torrent=mem --split=10 --daemon=true"
-aria2_is_running = False
 aria2 = None
 
 
 @borg.on(admin_cmd(pattern="ariastart"))
 async def aria_start(event):
-    process = await asyncio.create_subprocess_shell(
-        aria2_daemon_start_cmd,
+    aria2_daemon_start_cmd = []
+    # start the daemon, aria2c command
+    aria2_daemon_start_cmd.append("aria2c")
+    aria2_daemon_start_cmd.append("--allow-overwrite=true")
+    aria2_daemon_start_cmd.append("--daemon=true")
+    # aria2_daemon_start_cmd.append(f"--dir={Config.TMP_DOWNLOAD_DIRECTORY}")
+    # TODO: this does not work, need to investigate this.
+    # but for now, https://t.me/TrollVoiceBot?start=858
+    aria2_daemon_start_cmd.append("--enable-rpc")
+    aria2_daemon_start_cmd.append("--follow-torrent=mem")
+    aria2_daemon_start_cmd.append("--max-connection-per-server=10")
+    aria2_daemon_start_cmd.append("--min-split-size=10M")
+    aria2_daemon_start_cmd.append("--rpc-listen-all=false")
+    aria2_daemon_start_cmd.append(f"--rpc-listen-port={ARIA2_STARTED_PORT}")
+    aria2_daemon_start_cmd.append("--rpc-max-request-size=1024M")
+    aria2_daemon_start_cmd.append("--seed-ratio=100.0")
+    aria2_daemon_start_cmd.append("--seed-time=1")
+    aria2_daemon_start_cmd.append("--split=10")
+    #
+    process = await asyncio.create_subprocess_exec(
+        *aria2_daemon_start_cmd,
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE
     )
     stdout, stderr = await process.communicate()
+    logger.info(stdout)
+    logger.info(stderr)
     global aria2
     aria2 = aria2p.API(
         aria2p.Client(
@@ -93,8 +108,8 @@ async def torrent_download(event):
             options=None,
             position=None
         )
-    except:
-        await event.edit("`Torrent File Not Found...`")
+    except Exception as e:
+        await event.edit(str(e))
         return
     gid = download.gid
     await check_progress_for_dl(gid, event)
@@ -119,7 +134,7 @@ async def magnet_download(event):
     await check_progress_for_dl(gid, event)
 
 
-@borg.on(admin_cmd(pattern="ariaRM"))
+@borg.on(admin_cmd(pattern="ariarm"))
 async def remove_all(event):
     if event.fwd_from:
         return
@@ -133,7 +148,7 @@ async def remove_all(event):
     await event.edit("`Removed All Downloads.`")
 
 
-@borg.on(admin_cmd(pattern="ariaP"))
+@borg.on(admin_cmd(pattern="aria0"))
 async def pause_all(event):
     if event.fwd_from:
         return
@@ -142,7 +157,7 @@ async def pause_all(event):
     await event.edit("Output: " + str(paused))
 
 
-@borg.on(admin_cmd(pattern="ariaRES"))
+@borg.on(admin_cmd(pattern="aria1"))
 async def resume_all(event):
     if event.fwd_from:
         return
@@ -150,7 +165,7 @@ async def resume_all(event):
     await event.edit("Output: " + str(resumed))
 
 
-@borg.on(admin_cmd(pattern="showariastatus"))
+@borg.on(admin_cmd(pattern="status"))
 async def show_all(event):
     if event.fwd_from:
         return
@@ -215,4 +230,4 @@ async def check_progress_for_dl(gid, event):
     complete = file.is_complete
     if complete:
         await event.edit(f"File Downloaded Successfully:`{file.name}`")
-        
+
