@@ -1,11 +1,10 @@
 """Upload local Files to gDrive
 Syntax:
-.gdrive
-.sdrive
-.ghdrive (does not shows link)
-.gfolder
-.drive delete | get
-.gclear """
+.gdrive : Upload file
+.gdir : Upload folder
+.drive (del | get)
+.sdrive : Search file
+.ghdrive: upload with hidden link """
 
 # The entire code given below is verbatim copied from
 # https://github.com/cyberboysumanjay/Gdrivedownloader/blob/master/gdrive_upload.py
@@ -41,7 +40,7 @@ OAUTH_SCOPE = "https://www.googleapis.com/auth/drive.file"
 # Redirect URI for installed apps, can be left as is
 REDIRECT_URI = "urn:ietf:wg:oauth:2.0:oob"
 # global variable to set Folder ID to upload to
-G_DRIVE_F_PARENT_ID = None
+G_DRIVE_F_PARENT_ID = Config.GDRIVE_FOLDER_ID
 # global variable to indicate mimeType of directories in gDrive
 G_DRIVE_DIR_MIME_TYPE = "application/vnd.google-apps.folder"
 
@@ -116,28 +115,28 @@ async def _(event):
         await mone.edit("File Not found in local server. Give me a file path :((")
 
 
-@borg.on(admin_cmd(pattern="gfolder https?://drive\.google\.com/drive/u/\d/folders/([-\w]{25,})", allow_sudo=True))
-async def _(event):
-    if event.fwd_from:
-        return
-    mone = await event.reply("Processing ...")
-    input_str = event.pattern_match.group(1)
-    if input_str:
-        G_DRIVE_F_PARENT_ID = input_str
-        await mone.edit(f"Custom Folder ID set successfully. The next uploads will upload to {G_DRIVE_F_PARENT_ID} till `.gdriveclear`")
-        await event.delete()
-    else:
-        await mone.edit("Send `.gdrivesp https://drive.google.com/drive/u/X/folders/Y` to set the folder to upload new files to")
+#@borg.on(admin_cmd(pattern="gfolder https?://drive\.google\.com/drive/u/\d/folders/([-\w]{25,})", allow_sudo=True))
+#async def _(event):
+#    if event.fwd_from:
+#        return
+#    mone = await event.reply("Processing ...")
+#    input_str = event.pattern_match.group(1)
+#    if input_str:
+#        G_DRIVE_F_PARENT_ID = input_str
+#        await mone.edit(f"Custom Folder ID set successfully. The next uploads will upload to {G_DRIVE_F_PARENT_ID} till `.gdriveclear`")
+#        await event.delete()
+#    else:
+#        await mone.edit("Send `.gclear https://drive.google.com/drive/u/X/folders/Y` to set the folder to upload new files to")
 
 
-@borg.on(admin_cmd(pattern="gclear", allow_sudo=True))
-async def _(event):
-    if event.fwd_from:
-        return
-    mone = await event.reply("Processing ...")
-    G_DRIVE_F_PARENT_ID = None
-    await mone.edit("Custom Folder ID cleared successfully.")
-    await event.delete()
+#@borg.on(admin_cmd(pattern="gclear", allow_sudo=True))
+#async def _(event):
+#    if event.fwd_from:
+#        return
+#    mone = await event.reply("Processing ...")
+#    G_DRIVE_F_PARENT_ID = None
+#    await mone.edit("Custom Folder ID cleared successfully.")
+#    await event.delete()
 
 
 @borg.on(admin_cmd(pattern="gdir ?(.*)", allow_sudo=True))
@@ -173,7 +172,7 @@ async def _(event):
         await mone.edit(f"directory {input_str} does not seem to exist")
 
 
-@borg.on(admin_cmd(pattern="drive (delete|get) ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="drive (del|get) ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
@@ -198,7 +197,7 @@ async def _(event):
     http = authorize(G_DRIVE_TOKEN_FILE, storage)
     # Authorize, get file parameters, upload file and print out result URL for download
     drive_service = build("drive", "v2", http=http, cache_discovery=False)
-    if t_reqd_comd == "delete":
+    if t_reqd_comd == "del":
         response_from_svc = await gdrive_delete(drive_service, input_str)
     elif t_reqd_comd == "get":
         response_from_svc = await gdrive_list_file_md(drive_service, input_str)
