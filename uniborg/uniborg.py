@@ -28,7 +28,7 @@ class Uniborg(TelegramClient):
         # This means that using the Storage type as a storage would work too.
         self._name = "LoggedIn"
         self.storage = storage or (lambda n: Storage(Path("data") / n))
-        self._logger = logging.getLogger("PepeBot")
+        self._logger = logging.getLogger("UniBorg")
         self._plugins = {}
         self._plugin_path = plugin_path
         self.config = api_config
@@ -38,8 +38,8 @@ class Uniborg(TelegramClient):
         kwargs = {
             "api_id": 6,
             "api_hash": "eb06d4abfb49dc3eeb1aeb98ae0f581e",
-            "device_model": "IPhone 11 MAX PRO (Clone)",
-            "app_version": "@NeoMatrix90",
+            "device_model": "GNU/Linux nonUI",
+            "app_version": "@UniBorg",
             "lang_code": "en",
             **kwargs
         }
