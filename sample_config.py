@@ -129,7 +129,7 @@ class Config(object):
     #
     CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
     CHROME_BIN = os.environ.get("CHROME_BIN", None)
-    # define "heroku_link" in conig_vars 
+    # define "heroku_link" in conig_vars
     HEROKU_LINK = os.environ.get("HEROKU_LINK", None)
     # define "repo_link" in conig_vars
     REPO_LINK = os.environ.get("REPO_LINK", None)
@@ -139,6 +139,9 @@ class Config(object):
     #MIRRORACE STUFF
     MIRROR_ACE_API_KEY = os.environ.get("MIRROR_ACE_API_KEY", None)
     MIRROR_ACE_API_TOKEN = os.environ.get("MIRROR_ACE_API_TOKEN", None)
+    #
+    #Kang stuff
+    TG_USER_NAME = os.environ.get("TG_USER_NAME", None)
     #
     # spotify stuff
     DEFAULT_BIO = os.environ.get("DEFAULT_BIO",None)
@@ -151,7 +154,7 @@ class Config(object):
     # define the "types" that should be uplaoded as streamable
     TL_VID_STREAM_TYPES = ("MP4", "WEBM")
     TL_MUS_STREAM_TYPES = ("MP3", "WAV", "FLAC", "M4A")
-   #Uthob
+    #Uthob
     YOUTUBE_API_KEY = os.environ.get("YOUTUBE_API_KEY", None)
     #For Lol
     API_TOKEN = os.environ.get("API_TOKEN", None)
