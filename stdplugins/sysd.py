@@ -26,7 +26,7 @@ async def sysdetails(sysd):
             result = str(stdout.decode().strip()) \
                 + str(stderr.decode().strip())
 
-            await sysd.edit("Neofetch Result: `" + result + "`")
+            await sysd.edit("`" + result + "`")
         except FileNotFoundError:
-            await sysd.edit("`Install .neofetch first kthx`")
+            await sysd.edit("`Install neofetch first kthx`")
 
