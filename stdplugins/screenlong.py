@@ -9,7 +9,7 @@ from telethon import events
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("long (.*)"))
+@borg.on(admin_cmd(pattern="long (.*)"))
 async def _(event):
     if event.fwd_from:
         return

@@ -6,7 +6,7 @@ import json
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("ddg (.*)"))
+@borg.on(admin_cmd(pattern="ddg (.*)"))
 async def _(event):
     if event.fwd_from:
         return

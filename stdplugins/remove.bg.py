@@ -24,7 +24,7 @@ from telethon import events
 from uniborg.util import progress, admin_cmd
 
 
-@borg.on(admin_cmd("rbg ?(.*)"))
+@borg.on(admin_cmd(pattern="rbg ?(.*)"))
 async def _(event):
     HELP_STR = "`.rbg` as reply to a media, or give a link as an argument to this command"
     if event.fwd_from:

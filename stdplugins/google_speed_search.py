@@ -12,7 +12,7 @@ import json
 from uniborg.util import admin_cmd
 
 
-@borg.on(admin_cmd("spd (.*)"))
+@borg.on(admin_cmd(pattern="spd (.*)"))
 async def _(event):
     if event.fwd_from:
         return

@@ -9,7 +9,7 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.WARN)
 
 
-@borg.on(admin_cmd("color (.*)"))
+@borg.on(admin_cmd(pattern="color (.*)"))
 async def _(event):
     if event.fwd_from:
         return

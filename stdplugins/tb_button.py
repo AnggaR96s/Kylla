@@ -1,5 +1,5 @@
 """Create Button Posts
-"""
+.cbutton"""
 
 import re
 from telethon import custom

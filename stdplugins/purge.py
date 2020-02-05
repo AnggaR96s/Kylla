@@ -12,7 +12,7 @@ logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s'
 level=logging.INFO
 print(level)
 
-@borg.on(admin_cmd("purge ?(.*)"))
+@borg.on(admin_cmd(pattern="purge ?(.*)"))
 async def _(event):
     if event.fwd_from:
         return
@@ -42,7 +42,7 @@ async def _(event):
             await event.edit("**PURGE** Failed!")
 
     
-@borg.on(admin_cmd("purgme ?(.*)"))
+@borg.on(admin_cmd(pattern="purgme ?(.*)"))
 async def purgeme(delme):
     """ For .purgeme, delete x count of your latest message."""
     message = delme.text
