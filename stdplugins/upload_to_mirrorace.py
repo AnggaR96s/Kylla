@@ -1,5 +1,5 @@
 """Upload local Files to Mirrors
-Syntax: .ma
+Syntax: .ace
 ."""
 
 import asyncio
@@ -19,7 +19,7 @@ else:
     if os.path.exists("sample_config.py"):
         from sample_config import Development as Config
 
-@borg.on(admin_cmd(pattern="ma ?(.*)", allow_sudo=True))
+@borg.on(admin_cmd(pattern="ace ?(.*)", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
