@@ -2,7 +2,7 @@
 \nJust type .song (song name)
 """
 from telethon import events
-import subprocess
+import subprocess, instantmusic
 from telethon.errors import MessageEmptyError, MessageTooLongError, MessageNotModifiedError
 import io
 import asyncio
@@ -10,15 +10,8 @@ import time
 from uniborg.util import admin_cmd
 import glob
 import os
-try:
- import instantmusic , subprocess
-except:
- os.system("pip install instantmusic")
  
-
-
 os.system("rm -rf *.mp3")
-
 
 def bruh(name):
     
@@ -39,7 +32,7 @@ async def _(event):
     bruh(str(cmd))
     l = glob.glob("*.mp3")
     loa = l[0]
-    await event.edit("`Sending Chutiya Song`")
+    await event.edit("`Sending Song`")
     await event.delete()
     await borg.send_file(
                 event.chat_id,
