@@ -107,3 +107,18 @@ async def imdb(e):
     			)
  except IndexError:
      await e.edit("Plox enter **Valid movie name** kthx")
+
+@borg.on(admin_cmd(pattern="film ?(.*)"))
+async def let_me_google_that_for_youu(lmgtfyy_q):
+    textx = await lmgtfyy_q.get_reply_message()
+    qry = lmgtfyy_q.pattern_match.group(1)
+    if qry:
+        query = str(qry)
+    elif textx:
+        query = textx
+        query = query.message
+    query_encoded = query.replace(" ", "+")
+    lfy_url = f"http://dunia21.org/?s={query_encoded}"
+    payload = {'format': 'json', 'url': lfy_url}
+    r = requests.get('http://is.gd/create.php', params=payload)
+    await lmgtfyy_q.edit(f"Link for movie [{query}]({r.json()['shorturl']})")
