@@ -120,16 +120,16 @@ class Config(object):
     OPEN_LOAD_KEY = os.environ.get("OPEN_LOAD_KEY", "0")
     # Google Chrome Selenium Stuff
     # taken from https://github.com/jaskaranSM/UniBorg/blob/9072e3580cc6c98d46f30e41edbe73ffc9d850d3/sample_config.py#L104-L106
-    GOOGLE_CHROME_DRIVER = os.environ.get("GOOGLE_CHROME_DRIVER", None)
-    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", None)
+    GOOGLE_CHROME_DRIVER = os.environ.get("GOOGLE_CHROME_DRIVER", "/usr/bin/chromedriver")
+    GOOGLE_CHROME_BIN = os.environ.get("GOOGLE_CHROME_BIN", "/usr/bin/chromium")
     #
     LYDIA_API = os.environ.get("LYDIA_API", None)
     #
     HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
     HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
     #
-    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", None)
-    CHROME_BIN = os.environ.get("CHROME_BIN", None)
+    CHROME_DRIVER = os.environ.get("CHROME_DRIVER", "/usr/bin/chromedriver")
+    CHROME_BIN = os.environ.get("CHROME_BIN", "/usr/bin/chromium")
     # define "heroku_link" in conig_vars
     HEROKU_LINK = os.environ.get("HEROKU_LINK", None)
     # define "repo_link" in conig_vars

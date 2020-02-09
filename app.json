@@ -139,7 +139,7 @@
     "G_DRIVE_CLIENT_SECRET": {
       "description": "Get your credentials from https://da.gd/so63O",
       "required": false
-      },
+    },
       "GDRIVE_FOLDER_ID": {
       "description": "Get your gdrive folder link in which you want to save file.",
       "required": false
@@ -157,16 +157,6 @@
     "FF_MPEG_DOWN_LOAD_MEDIA_PATH": {
       "description": "blah blah blah.",
       "value": "./uniborg.media.ffmpeg/",
-      "required": false
-    },
-    "CHROME_BIN": {
-      "description": "For Carbon.py",
-      "value": "/usr/bin/chromium-browser",
-      "required": false
-    },
-    "CHROME_DRIVER": {
-      "description": "For Carbon.py",
-      "value": "/usr/bin/chromedriver",
       "required": false
     },
     "NO_OF_BUTTONS_DISPLAYED_IN_H_ME_CMD": {
