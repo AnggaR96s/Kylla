@@ -1,4 +1,4 @@
-FROM anggarsx/kylla:20200207
+FROM anggarsx/arch:20200209
 RUN mkdir /bot
 RUN chmod 777 /bot
 WORKDIR /bot
