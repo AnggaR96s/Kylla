@@ -239,6 +239,11 @@
       "value": "pmpermit antiflood locks ukinti spotifyname markdown",
       "required": false
     },
+    "ALIVE_NAME": {
+      "description": "Your name for .alive module.",
+      "value": "@AnggaR96s",
+      "required": true
+    },
     "TELE_GRAM_2FA_CODE": {
       "description": "Your Telegram 2FA code as a string",
       "required": false
