@@ -219,6 +219,31 @@
       "value": "",
       "required": true
     },
+    "SPOTIFY_USERNAME": {
+      "description": "Kek.",
+      "value": "",
+      "required": false
+    },
+    "SPOTIFY_PASS": {
+      "description": "Your password.",
+      "value": "",
+      "required": false
+    },
+    "DEFAULT_BIO": {
+      "description": "Your telegram default bio.",
+      "value": "RunningUserBoobs, PM BLOCK.",
+      "required": false
+    },
+    "DEFAULT_NAME": {
+      "description": "Idk.",
+      "value": "Kylla",
+      "required": false
+    },
+    "SPOTIFY_BIO_PREFIX": {
+      "description": "Example: GitHub: AnggaR96s : Didi Kempot - Pamer Bojo",
+      "value": "",
+      "required": false
+    },
     "TELE_GRAM_2FA_CODE": {
       "description": "Your Telegram 2FA code as a string",
       "required": false
