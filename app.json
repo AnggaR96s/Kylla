@@ -234,6 +234,11 @@
       "value": "",
       "required": false
     },
+    "NO_LOAD": {
+      "description": "Mean nuke the plugins.",
+      "value": "pmpermit, antiflood, locks, ukinti, spotifyname",
+      "required": false
+    },
     "TELE_GRAM_2FA_CODE": {
       "description": "Your Telegram 2FA code as a string",
       "required": false
