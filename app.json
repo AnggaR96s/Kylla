@@ -236,7 +236,7 @@
     },
     "NO_LOAD": {
       "description": "Mean nuke the plugins.",
-      "value": "pmpermit, antiflood, locks, ukinti, spotifyname",
+      "value": "pmpermit antiflood locks ukinti spotifyname markdown",
       "required": false
     },
     "TELE_GRAM_2FA_CODE": {
