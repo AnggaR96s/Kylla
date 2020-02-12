@@ -49,7 +49,7 @@ G_DRIVE_DIR_MIME_TYPE = "application/vnd.google-apps.folder"
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("`Processing ...`")
+    mone = await event.edit("`Processing ...`")
     if CLIENT_ID is None or CLIENT_SECRET is None:
         await mone.edit("This module requires credentials from https://da.gd/so63O. Aborting!")
         return
@@ -143,7 +143,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.edit("Processing ...")
     if CLIENT_ID is None or CLIENT_SECRET is None:
         await mone.edit("This module requires credentials from https://da.gd/so63O. Aborting!")
         return
@@ -176,7 +176,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.edit("Processing ...")
     if CLIENT_ID is None or CLIENT_SECRET is None:
         await mone.edit("This module requires credentials from https://da.gd/so63O. Aborting!")
         return
@@ -208,7 +208,7 @@ async def _(event):
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.edit("Processing ...")
     if CLIENT_ID is None or CLIENT_SECRET is None:
         await mone.edit("This module requires credentials from https://da.gd/so63O. Aborting!")
         return
@@ -442,7 +442,7 @@ async def gdrive_search(http, search_query):
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing hidden G-Drive Download...")
+    mone = await event.edit("Processing hidden G-Drive Download...")
     if CLIENT_ID is None or CLIENT_SECRET is None:
         await mone.edit("This module requires credentials from https://da.gd/so63O. Aborting!")
         return
