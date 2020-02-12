@@ -23,7 +23,7 @@ else:
 async def _(event):
     if event.fwd_from:
         return
-    mone = await event.reply("Processing ...")
+    mone = await event.edit("Processing ...")
     if Config.MIRROR_ACE_API_KEY is None or Config.MIRROR_ACE_API_TOKEN is None:
         await mone.edit("This module requires API key from https://ouo.io/My1jdU. Aborting!")
         return False
