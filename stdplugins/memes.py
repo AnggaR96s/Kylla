@@ -2,7 +2,8 @@
 .mock
 .vap
 .owo
-.str"""
+.str
+.zal"""
 
 from telethon import events
 from uniborg.util import admin_cmd
@@ -10,6 +11,120 @@ import subprocess, random, requests
 from random import choice, getrandbits, randint
 from re import sub
 from collections import deque
+
+ZALG_LIST = [[
+    "̖",
+    " ̗",
+    " ̘",
+    " ̙",
+    " ̜",
+    " ̝",
+    " ̞",
+    " ̟",
+    " ̠",
+    " ̤",
+    " ̥",
+    " ̦",
+    " ̩",
+    " ̪",
+    " ̫",
+    " ̬",
+    " ̭",
+    " ̮",
+    " ̯",
+    " ̰",
+    " ̱",
+    " ̲",
+    " ̳",
+    " ̹",
+    " ̺",
+    " ̻",
+    " ̼",
+    " ͅ",
+    " ͇",
+    " ͈",
+    " ͉",
+    " ͍",
+    " ͎",
+    " ͓",
+    " ͔",
+    " ͕",
+    " ͖",
+    " ͙",
+    " ͚",
+    " ",
+],
+             [
+                 " ̍",
+                 " ̎",
+                 " ̄",
+                 " ̅",
+                 " ̿",
+                 " ̑",
+                 " ̆",
+                 " ̐",
+                 " ͒",
+                 " ͗",
+                 " ͑",
+                 " ̇",
+                 " ̈",
+                 " ̊",
+                 " ͂",
+                 " ̓",
+                 " ̈́",
+                 " ͊",
+                 " ͋",
+                 " ͌",
+                 " ̃",
+                 " ̂",
+                 " ̌",
+                 " ͐",
+                 " ́",
+                 " ̋",
+                 " ̏",
+                 " ̽",
+                 " ̉",
+                 " ͣ",
+                 " ͤ",
+                 " ͥ",
+                 " ͦ",
+                 " ͧ",
+                 " ͨ",
+                 " ͩ",
+                 " ͪ",
+                 " ͫ",
+                 " ͬ",
+                 " ͭ",
+                 " ͮ",
+                 " ͯ",
+                 " ̾",
+                 " ͛",
+                 " ͆",
+                 " ̚",
+             ],
+             [
+                 " ̕",
+                 " ̛",
+                 " ̀",
+                 " ́",
+                 " ͘",
+                 " ̡",
+                 " ̢",
+                 " ̧",
+                 " ̨",
+                 " ̴",
+                 " ̵",
+                 " ̶",
+                 " ͜",
+                 " ͝",
+                 " ͞",
+                 " ͟",
+                 " ͠",
+                 " ͢",
+                 " ̸",
+                 " ̷",
+                 " ͡",
+             ]]
 
 UWUS = [
     "(・`ω´・)",
@@ -146,3 +261,41 @@ async def stretch(stret):
     reply_text = sub(r"([aeiouAEIOUａｅｉｏｕＡＥＩＯＵаеиоуюяыэё])", (r"\1" * count),
                      message)
     await stret.edit(reply_text)
+
+@borg.on(admin_cmd(pattern="zal ?(.*)"))
+async def zal(zgfy):
+    """ Invoke the feeling of chaos. """
+    reply_text = list()
+    textx = await zgfy.get_reply_message()
+    message = zgfy.pattern_match.group(1)
+    if message:
+        pass
+    elif textx:
+        message = textx.text
+    else:
+        await zgfy.edit(
+            "`gͫ ̆ i̛ ̺ v͇̆ ȅͅ   a̢ͦ   s̴̪ c̸̢ ä̸ rͩͣ y͖͞   t̨͚ é̠ x̢͖  t͔͛`"
+        )
+        return
+
+    for charac in message:
+        if not charac.isalpha():
+            reply_text.append(charac)
+            continue
+
+        for _ in range(0, 3):
+            textz = randint(0, 2)
+
+            if textz == 0:
+                charac = charac.strip() + \
+                    choice(ZALG_LIST[0]).strip()
+            elif textz == 1:
+                charac = charac.strip() + \
+                    choice(ZALG_LIST[1]).strip()
+            else:
+                charac = charac.strip() + \
+                    choice(ZALG_LIST[2]).strip()
+
+        reply_text.append(charac)
+
+    await zgfy.edit("".join(reply_text))
