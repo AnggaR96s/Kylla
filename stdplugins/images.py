@@ -2,11 +2,10 @@
 
 """Download & Upload Images on Telegram
 Syntax: `.img <Name>` or `.img (replied message)`
-\n Upgraded by @NeoMatrix90 aka @kirito6969
 """
 
 
-from google_images_download import google_images_download
+from uniborg.google_images_download import googleimagesdownload
 import os
 import shutil
 from re import findall
@@ -15,7 +14,7 @@ from uniborg.util import admin_cmd
 
 @borg.on(admin_cmd(pattern="img ?(.*)"))
 async def img_sampler(event):
-    await event.edit("`Processing Bsdk..`")
+    await event.edit("`Processing...`")
     reply = await event.get_reply_message()
     if event.pattern_match.group(1):
         query = event.pattern_match.group(1)
@@ -23,7 +22,7 @@ async def img_sampler(event):
         query = reply.message
     else:
         return
-    
+
     lim = findall(r"lim=\d+", query)
     try:
         lim = lim[0]
@@ -31,7 +30,7 @@ async def img_sampler(event):
         query = query.replace("lim=" + lim[0], "")
     except IndexError:
         lim = 3
-    response = google_images_download.googleimagesdownload()
+    response = googleimagesdownload()
 
     # creating list of arguments
     arguments = {

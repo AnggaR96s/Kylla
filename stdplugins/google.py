@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 from google_images_download import google_images_download
 from uniborg.util import admin_cmd
+from uniborg.google_images_download import googleimagesdownload
 
 
 def progress(current, total):
@@ -49,7 +50,7 @@ async def _(event):
     start = datetime.now()
     await event.edit("Processing ...")
     input_str = event.pattern_match.group(1)
-    response = google_images_download.googleimagesdownload()
+    response = googleimagesdownload()
     if not os.path.isdir(Config.TMP_DOWNLOAD_DIRECTORY):
         os.makedirs(Config.TMP_DOWNLOAD_DIRECTORY)
     arguments = {
