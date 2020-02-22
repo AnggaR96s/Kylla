@@ -1,9 +1,10 @@
-""".penis <emoji>
+""".pen <emoji>
 .mock
 .vap
 .owo
 .str
-.zal"""
+.zal
+.ii"""
 
 from telethon import events
 from uniborg.util import admin_cmd
@@ -143,6 +144,32 @@ UWUS = [
     "(♥_♥)",
     "*(^O^)*",
     "((+_+))",
+]
+
+HILIH = [
+    "┐(´д｀)┌",
+    "┐(´～｀)┌",
+    "┐(´ー｀)┌",
+    "┐(￣ヘ￣)┌",
+    "╮(╯∀╰)╭",
+    "╮(╯_╰)╭",
+    "┐(´д`)┌",
+    "┐(´∀｀)┌",
+    "ʅ(́◡◝)ʃ",
+    "┐(ﾟ～ﾟ)┌",
+    "┐('д')┌",
+    "┐(‘～`;)┌",
+    "ヘ(´－｀;)ヘ",
+    "┐( -“-)┌",
+    "ʅ（´◔౪◔）ʃ",
+    "ヽ(゜～゜o)ノ",
+    "ヽ(~～~ )ノ",
+    "┐(~ー~;)┌",
+    "┐(-。ー;)┌",
+    r"¯\_(ツ)_/¯",
+    r"¯\_(⊙_ʖ⊙)_/¯",
+    r"¯\_༼ ಥ ‿ ಥ ༽_/¯",
+    "乁( ⁰͡  Ĺ̯ ⁰͡ ) ㄏ",
 ]
 
 PENIS_TEMPLATE = """
@@ -299,3 +326,22 @@ async def zal(zgfy):
         reply_text.append(charac)
 
     await zgfy.edit("".join(reply_text))
+
+@borg.on(admin_cmd(pattern="ii ?(.*)"))
+async def faces(iii):
+    """ iIi """
+    textx = await iii.get_reply_message()
+    message = iii.pattern_match.group(1)
+    if message:
+        pass
+    elif textx:
+        message = textx.text
+    else:
+        await iii.edit("` Hilih Kintil! `")
+        return
+
+    reply_text = sub(r"(a|i|u|e|o)", "i", message)
+    reply_text = sub(r"(A|I|U|E|O)", "I", reply_text)
+    reply_text = sub(r"\!+", " " + choice(HILIH), reply_text)
+    reply_text += " " + choice(HILIH)
+    await iii.edit(reply_text)
